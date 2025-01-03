@@ -35,7 +35,7 @@ public class SampleDataService {
         user.setUsername("john_doe");
         user.setPassword("password123");
         user.setEmail("john.doe@example.com");
-        userRepository.save(user);
+        userRepository.save(adminRole);
 
         // Add Order
         Order order = new Order();
