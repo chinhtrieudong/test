@@ -1,13 +1,3 @@
-package com.techlearn.service;
-
-import com.techlearn.entity.*;
-import com.techlearn.repository.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-
 @Service
 public class SampleDataService {
 
@@ -28,14 +18,15 @@ public class SampleDataService {
         Role adminRole = new Role();
         adminRole.setRoleName("Admin");
         adminRole.setDescription("Administrator role");
-        roleRepository.save(adminRole);
+        roleRepository.save(adminRole); // Lưu Role
 
-        // Add User
+        // Add User and set the role for the user
         User user = new User();
         user.setUsername("john_doe");
         user.setPassword("password123");
         user.setEmail("john.doe@example.com");
-        userRepository.save(adminRole);
+        user.setRole(adminRole); // Gán Role cho User
+        userRepository.save(user); // Lưu User
 
         // Add Order
         Order order = new Order();
